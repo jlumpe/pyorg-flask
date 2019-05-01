@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jlumpe/pyorg#readme",
   "dependencies": {
     "bootstrap": "^3.4.1",
+    "ionicons": "^4.5.6",
     "jquery": "^3.3.1",
     "mathjax": "^2.7.5"
   },

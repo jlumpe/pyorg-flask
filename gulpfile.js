@@ -15,6 +15,7 @@ const static_dir = './pyorg/flask/static/',
 
 
 const font_files = [
+    'ionicons/dist/fonts/ionicons.woff2',
 ];
 
 function fonts() {
