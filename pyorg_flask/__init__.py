@@ -6,3 +6,6 @@ Flask app for pyorg package.
 __author__ = 'Jared Lumpe'
 __email__ = 'mjlumpe@gmail.com'
 __version__ = '0.1'
+
+
+from .blueprint import pyorg_flask
