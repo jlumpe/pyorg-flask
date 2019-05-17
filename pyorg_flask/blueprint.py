@@ -113,7 +113,7 @@ def get_other_file(filepath):
 		abort(404)
 
 	if abspath.is_dir():
-		return redirect(url_for('viewfile', path=filepath + '/'))
+		return redirect(url_for('pyorg.viewfile', path=filepath + '/'))
 
 	return send_file(str(abspath))
 
