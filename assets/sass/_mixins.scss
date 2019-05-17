@@ -1,7 +1,16 @@
 
 
+
+// Standard margins for block-level elements
+%block-margins {
+  margin: 0;
+  //&:not(:last-child) { margin-bottom: 24px; }
+  margin-bottom: 24px;
+}
+
+
 %code-block-base {
-  //@extend code.literal;
+  @extend %block-margins;
 
   // From .rst-content div[class^='highlight'] pre
   font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;

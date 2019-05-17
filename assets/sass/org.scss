@@ -48,18 +48,34 @@
    * Org blocks
    ********************/
 
+  %org-block-base {
+    @extend %block-margins;
+    & > :last-child { margin-bottom: 0; }
+  }
+
   &.org-src-block {
     & > .org-src-block-value {
+      @extend %org-block-base;
       @extend %code-block-base;
     }
   }
 
   &.org-center-block {
+    @extend %org-block-base;
     text-align: center;
   }
 
   &.org-example-block {
+    @extend %org-block-base;
     @extend %code-block-base;
+  }
+
+  &.org-quote-block, .org-verse-block {
+    @extend %org-block-base;
+    border-left: 5px solid #6AB0DE;
+    background-color: #E7F2FA;
+    padding: 6px 20px;
+    font-style: italic;
   }
 
   /********************
@@ -67,6 +83,7 @@
    ********************/
 
   &.org-table {
+    @extend %block-margins;
     @extend %rtd-table;
   }
 
@@ -167,6 +184,33 @@
 /********************
  * Errors
  ********************/
+
+div.org-node.org-error {
+  @extend %block-margins;
+
+  padding: 12px;
+  background: #fdf3f2;
+
+  & > .org-error-msg {
+    margin: -12px;
+    padding: 6px 12px;
+    background: #f29f97;
+    color: #fff;
+
+    &:not(:last-child) { margin-bottom: 12px; }
+
+    @extend .ion-ios-alert;
+    &::before {
+      margin-left: -.25em;
+      margin-right: .5em;
+    }
+  }
+
+  & > & {
+    margin-bottom: 6px;
+    &:last-child { margin-bottom: 0; }
+  }
+}
 
 .org-error {
   color: $org-error-font-color;
