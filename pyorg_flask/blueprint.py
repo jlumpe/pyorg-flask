@@ -1,11 +1,14 @@
 from pathlib import Path
-import json
 
 from flask import (
 	Blueprint, render_template, Markup, send_file, abort, url_for, redirect,
 	current_app,
 )
 import jinja2
+
+
+from pyorg.ast import OrgNode
+from pyorg.html import OrgHtmlConverter
 
 from .base import orginterface
 
@@ -23,7 +26,6 @@ def context_processor():
 @jinja2.contextfilter
 @pyorg_flask.app_template_test('orgnode')
 def test_orgast(value):
-	from pyorg.ast import OrgNode
 	return isinstance(value, OrgNode)
 
 
@@ -54,7 +56,6 @@ def view_org_file(path):
 
 	content = orginterface.read_org_file(path, assign_ids=True)
 
-	from pyorg.html import OrgHtmlConverter
 	converter = OrgHtmlConverter()
 
 	html = Markup(converter.convert(content))
