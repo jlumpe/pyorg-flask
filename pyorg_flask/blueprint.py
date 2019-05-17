@@ -1,4 +1,5 @@
 from pathlib import Path
+from subprocess import CalledProcessError
 
 from flask import (
 	Blueprint, render_template, Markup, send_file, abort, url_for, redirect,
@@ -27,6 +28,11 @@ def context_processor():
 @pyorg_flask.app_template_test('orgnode')
 def test_orgast(value):
 	return isinstance(value, OrgNode)
+
+
+@pyorg_flask.errorhandler(CalledProcessError)
+def handle_emacs_error(exc):
+	return render_template('emacs-error.html.j2', exc=exc)
 
 
 @pyorg_flask.route('/files/')
