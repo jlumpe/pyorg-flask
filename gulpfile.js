@@ -9,7 +9,7 @@ const path = require('path'),
 
 sass.compiler = require('node-sass');
 
-const static_dir = './pyorg/flask/static/',
+const static_dir = './pyorg_flask/static/',
       sass_files = './assets/**/*.scss',
       script_files = './assets/**/*.js';
 
