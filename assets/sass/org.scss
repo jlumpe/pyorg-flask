@@ -1,5 +1,5 @@
 /*
-Styling for org file elements.
+ * Styling for org file elements.
  */
 
 
@@ -12,13 +12,41 @@ Styling for org file elements.
 }
 
 
+/********************
+ * Org AST nodes
+ ********************/
+
 .org-node {
+
+  /********************
+   * Inline markup
+   ********************/
 
   &.org-link {
     &.org-link-raw {
       font-family: monospace;
     }
   }
+
+  &.org-verbatim {
+    @extend code;
+    color: inherit;
+  }
+
+  &.org-timestamp {
+    white-space: nowrap;
+
+    &.org-timestamp-active {
+      color: $org-timestamp-active-color;
+    }
+    &.org-timestamp-inactive {
+      color: $org-timestamp-inactive-color;
+    }
+  }
+
+  /********************
+   * Org blocks
+   ********************/
 
   &.org-src-block {
     & > .org-src-block-value {
@@ -30,18 +58,21 @@ Styling for org file elements.
     text-align: center;
   }
 
-  &.org-verbatim {
-    @extend code;
-    color: inherit;
-  }
-
   &.org-example-block {
     @extend %code-block-base;
   }
 
+  /********************
+   * Other block-level
+   ********************/
+
   &.org-table {
     @extend %rtd-table;
   }
+
+  /********************
+   * Lists
+   ********************/
 
   &.org-item {
     &.org-checkbox {
@@ -61,6 +92,10 @@ Styling for org file elements.
     }
   }
 
+  /********************
+   * Headline-associated nodes
+   ********************/
+
   &.org-planning {
     margin-top: -20px;
     margin-bottom: 20px;
@@ -78,24 +113,13 @@ Styling for org file elements.
       padding: 2px 4px;
     }
   }
-
-  &.org-timestamp {
-    white-space: nowrap;
-
-    &.org-timestamp-active {
-      color: $org-timestamp-active-color;
-    }
-    &.org-timestamp-inactive {
-      color: $org-timestamp-inactive-color;
-    }
-  }
 }
 
-.org-error {
-  color: $org-error-font-color;
-}
 
-// Headline stuff
+/********************
+ * Headline stuff
+ ********************/
+
 .org-headline > * {
   vertical-align: middle;
 }
@@ -140,11 +164,23 @@ Styling for org file elements.
 }
 
 
+/********************
+ * Errors
+ ********************/
+
+.org-error {
+  color: $org-error-font-color;
+}
+
 .org-error-msg {
   //@extend .wy-alert;
   //@extend .wy-alert.wy-alert-danger;
 }
 
+
+/********************
+ * Directory page
+ ********************/
 
 .pyorg-dirindex {
 
@@ -157,6 +193,10 @@ Styling for org file elements.
 
 }
 
+
+/********************
+ * Agenda
+ ********************/
 
 table.agenda-table {
   font-size: 75%;
