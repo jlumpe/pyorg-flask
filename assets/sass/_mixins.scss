@@ -1,0 +1,26 @@
+
+
+%code-block-base {
+  //@extend code.literal;
+
+  // From .rst-content div[class^='highlight'] pre
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",Courier,monospace;
+  font-size: 12px;
+  line-height: 1.4;
+
+  // From .rst-content div[class^='highlight']
+  border: 1px solid #e1e4e5;
+  //overflow-x: auto;
+  margin: 1px 0 24px 0;
+
+
+  // From .rst-content div[class^='highlight'] pre
+  white-space: pre;
+  //margin: 0;
+  padding: 12px 12px;
+  display: block;
+  overflow: auto;
+
+  // From .highlight
+  background: #f8f8f8;
+}
