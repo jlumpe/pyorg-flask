@@ -2,7 +2,7 @@
 Sidebar / side menu
  */
 .sidebar {
-  //overflow-x: hidden;
+  overflow-x: hidden;
   //overflow-y: scroll;
 
   background: $sidebar-bg-color;
@@ -64,12 +64,9 @@ Sidebar / side menu
         & > .toctree-expand {
           display: block;
           float: left;
-          margin-left: -1.2em;
+          margin-left: -1.1em;
 
-          &::before {
-            content: "+";
-            font-size: 80%;
-          }
+          @extend .ion-ios-add;
         }
       }
     }

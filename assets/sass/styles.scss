@@ -59,3 +59,12 @@ ul.breadcrumbs {
     }
   }
 }
+
+
+pre {
+  @extend %code-block-base;
+
+  &.pre-wrap {
+    white-space: pre-wrap;
+  }
+}

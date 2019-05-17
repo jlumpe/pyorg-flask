@@ -43,6 +43,24 @@ Styling for org file elements.
     @extend %rtd-table;
   }
 
+  &.org-item {
+    &.org-checkbox {
+      list-style: none;
+      //position: relative;
+
+      &::before {
+        position: relative;
+        left: -1.4em;
+        width: 1em;
+        margin-right: -1em;
+        text-align: center;
+      }
+      &.org-checkbox-on { @extend .ion-ios-checkmark; }
+      //&.org-checkbox-off { @extend .ion-ios-square-outline; }
+      &.org-checkbox-trans { @extend .ion-ios-remove; }  // TODO
+    }
+  }
+
   &.org-planning {
     margin-top: -20px;
     margin-bottom: 20px;
@@ -62,6 +80,8 @@ Styling for org file elements.
   }
 
   &.org-timestamp {
+    white-space: nowrap;
+
     &.org-timestamp-active {
       color: $org-timestamp-active-color;
     }
