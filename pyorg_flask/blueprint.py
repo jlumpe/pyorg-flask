@@ -47,7 +47,7 @@ def make_toc(root):
 
 def view_org_file(path):
 	path = Path(path)
-	abspath = orginterface.get_abs_path(path)
+	abspath = orginterface.orgdir.get_abs_path(path)
 
 	if not abspath.is_file():
 		return render_template('orgfile-404.html.j2', file=str(path)), 404
@@ -73,7 +73,7 @@ def view_org_file(path):
 
 def view_org_directory(path):
 	path = Path(path)
-	abspath = orginterface.get_abs_path(path)
+	abspath = orginterface.orgdir.get_abs_path(path)
 
 	dirs = []
 	files = []
@@ -100,7 +100,7 @@ def view_org_directory(path):
 
 
 def get_other_file(filepath):
-	abspath = orginterface.get_abs_path(filepath)
+	abspath = orginterface.orgdir.get_abs_path(filepath)
 
 	if not abspath.exists():
 		abort(404)
