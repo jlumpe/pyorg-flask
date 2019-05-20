@@ -19,7 +19,7 @@
                     {{ render_org_ast_node(item, depth=depth+1) }}
                 {% else %}
                     <div class="org-ast-other">
-						{{ '%r' | format(item) }}
+						{{ '%r' | format(item) | e }}
                     </div>
                 {% endif %}
             {% endfor %}
@@ -38,7 +38,7 @@
 				{% if value is orgnode %}
 					{{ render_org_ast_node(value) }}
 				{% else %}
-					{{ '%r' | format(value) }}
+					{{ '%r' | format(value) | e }}
 				{% endif %}
 			</div>
 		</div>
