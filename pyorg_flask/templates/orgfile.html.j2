@@ -1,5 +1,5 @@
 {#  Displays exported .org file #}
-{% from 'macros.html.j2' import render_org_ast_node, sidebar_toc_list %}
+{% from 'macros.html.j2' import sidebar_toc_list %}
 
 {% extends 'rtd_base.html.j2' %}
 
@@ -41,9 +41,6 @@
 	<div class="org-content">
 		{{ file_content }}
 	</div>
-
-{#    <pre class="literal-block" style="margin-top: 50px;">{{ source_json }}</pre>#}
-    {{ render_org_ast_node(ast) }}
 
 {% endblock content %}
 

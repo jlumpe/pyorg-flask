@@ -1,9 +1,10 @@
+import os
 from pathlib import Path
 from subprocess import CalledProcessError
 
 from flask import (
 	Blueprint, render_template, Markup, send_file, abort, url_for, redirect,
-	current_app,
+	current_app, request
 )
 import jinja2
 
@@ -54,6 +55,7 @@ def make_toc(root):
 	return list(map(_make_toc, root.outline_children))
 
 def view_org_file(path):
+
 	path = Path(path)
 	abspath = orginterface.orgdir.get_abs_path(path)
 
@@ -61,6 +63,17 @@ def view_org_file(path):
 		return render_template('orgfile-404.html.j2', file=str(path)), 404
 
 	content = orginterface.read_org_file(path, assign_ids=True)
+	toc = make_toc(content)
+
+	# Display AST
+	if request.args.get('show', '').lower() == 'ast':
+		return render_template(
+			'orgfile-ast.html.j2',
+			ast=content,
+			file_name=path.name,
+			parents=path.parent.parts,
+			toc=toc,
+		)
 
 	converter = OrgHtmlConverter()
 
@@ -74,7 +87,7 @@ def view_org_file(path):
 		file_title=content.title or abspath.stem,
 		parents=path.parent.parts,
 		# source_json=json.dumps(data, indent=4, sort_keys=True),
-		toc=make_toc(content),
+		toc=toc,
 	)
 
 

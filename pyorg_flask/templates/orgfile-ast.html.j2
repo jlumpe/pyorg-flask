@@ -1,0 +1,31 @@
+{#  Displays .org abstract syntax tree #}
+{% from 'macros.html.j2' import render_org_ast_node %}
+
+{% extends 'rtd_base.html.j2' %}
+
+{% set page_title = file_name %}
+{% set depth = parents | length %}
+
+
+{% block content %}
+
+	{# Breadcrumbs #}
+	<div>
+        <ul class="breadcrumbs">
+			{% for dirname in ['root'] + (parents | list) %}
+				<li>
+					<a href="./{{ '../' * (depth - loop.index0) }}">{{ dirname }}</a>
+				</li>
+			{% endfor %}
+			<li>{{ file_name }}</li>
+		</ul>
+		<hr/>
+	</div>
+
+	{# Title #}
+	<h1>{{ filename }}</h1>
+
+	{# AST #}
+    {{ render_org_ast_node(ast) }}
+
+{% endblock content %}
