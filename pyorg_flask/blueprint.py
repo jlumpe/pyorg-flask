@@ -18,6 +18,33 @@ from .base import orginterface
 pyorg_flask = Blueprint('pyorg', __name__, template_folder='templates')
 
 
+
+def file_link_resolver(orgdir, wd=None):
+	orgdir = Path(orgdir).expanduser()
+	wd = None if wd is None else Path(wd).absolute()
+
+	def resolver(linktype, raw, path, ctx=None):
+		path2 = Path(os.path.normpath(path)).expanduser()
+		if not path2.is_absolute():
+			if wd is not None:
+				path2 = (wd / path2).resolve()
+			else:
+				return None
+
+		try:
+			relpath = path2.relative_to(orgdir)
+		except ValueError:
+			# Not in org directory
+			return None
+
+		assert not str(relpath).startswith('/')
+		assert not str(relpath).startswith('.')
+
+		return url_for('pyorg.viewfile', path=str(relpath))
+
+	return resolver
+
+
 def get_converter(orgdir=None, wd=None):
 	"""Get configured HTML converter.
 
@@ -32,7 +59,14 @@ def get_converter(orgdir=None, wd=None):
 	-------
 	pyorg.html.OrgHtmlConverter
 	"""
-	config = dict()
+	resolve_link = {}
+
+	if orgdir is not None and wd is not None:
+		resolve_link['file'] = file_link_resolver(orgdir, wd)
+
+	config = dict(
+		resolve_link=resolve_link,
+	)
 	return OrgHtmlConverter(config)
 
 
