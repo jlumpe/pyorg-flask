@@ -18,6 +18,29 @@ from .base import orginterface
 pyorg_flask = Blueprint('pyorg', __name__, template_folder='templates')
 
 
+def get_converter(orgdir=None, wd=None):
+	"""Get configured HTML converter.
+
+	Parameters
+	----------
+	orgdir
+		Absolute path to org directory.
+	wd
+		Working directory, for resolving file links.
+
+	Returns
+	-------
+	pyorg.html.OrgHtmlConverter
+	"""
+	config = dict()
+	return OrgHtmlConverter(config)
+
+
+def convert_org_data(data, **kw):
+	"""Convert org file data to raw HTML."""
+	converter = get_converter(**kw)
+	return converter.convert(data)
+
 
 @pyorg_flask.context_processor
 def context_processor():
@@ -75,14 +98,12 @@ def view_org_file(path):
 			toc=toc,
 		)
 
-	converter = OrgHtmlConverter()
-
-	html = Markup(converter.convert(content))
+	html = convert_org_data(content, wd=abspath.parent, orgdir=orginterface.orgdir.path)
 
 	return render_template(
 		'orgfile.html.j2',
 		ast=content,
-		file_content=html,
+		file_content=Markup(html),
 		file_name=path.name,
 		file_title=content.title or abspath.stem,
 		parents=path.parent.parts,
