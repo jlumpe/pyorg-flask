@@ -9,16 +9,16 @@
     <div class="container">
 
         {# Breadcrumbs #}
-        <div><ul class="wy-breadcrumbs">
+        <div><ul class="breadcrumbs">
             {% for parent in parents | list %}
                 <li>
                     <a href="./{{ '../' * (depth - loop.index0) }}">{{ parent }}</a>
-                    »
                 </li>
             {% endfor %}
             <li>{{ dirname }}</li>
-            <hr/>
         </ul></div>
+
+        <hr/>
 
         <h2>{{ dirname }}/</h2>
 
