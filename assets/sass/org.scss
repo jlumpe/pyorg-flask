@@ -96,6 +96,12 @@
     @extend %rtd-table;
   }
 
+  &.org-img-link {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
   /********************
    * Lists
    ********************/
@@ -115,6 +121,11 @@
       &.org-checkbox-on { @extend .ion-ios-checkmark; }
       //&.org-checkbox-off { @extend .ion-ios-square-outline; }
       &.org-checkbox-trans { @extend .ion-ios-remove; }  // TODO
+    }
+
+    // Can there be more than one?
+    & > .org-paragraph:last-of-type {
+      margin-bottom: 0;
     }
   }
 
