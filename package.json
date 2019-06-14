@@ -28,6 +28,6 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.12.0"
   }
 }
