@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template
 
-from pyorg.emacs import EmacsInterface
+from pyorg import Emacs
 from .blueprint import pyorg_flask
 
 
@@ -13,7 +13,7 @@ app.config.from_object(__package__ + '.config_default')
 app.config.from_envvar('PYORG_CONFIG', silent=True)
 
 
-emacs = EmacsInterface(['emacsclient'], client=True)
+emacs = Emacs(['emacsclient'], client=True)
 
 
 @app.route('/')

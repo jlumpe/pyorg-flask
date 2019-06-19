@@ -3,16 +3,16 @@ from werkzeug.local import LocalProxy
 
 
 def get_emacs():
-	"""Get ``EmacsInterface`` instance to use with application context.
+	"""Get ``Emacs`` instance to use with application context.
 
 	Returns
 	-------
-	pyorg.emacs.EmacsInterface
+	pyorg.emacs.Emacs
 	"""
 	if 'emacs' not in g:
-		from pyorg.emacs import EmacsInterface
+		from pyorg import Emacs
 
-		g.emacs = EmacsInterface(
+		g.emacs = Emacs(
 			cmd=current_app.config.get('PYORG_EMACS_CMD'),
 			client=current_app.config.get('PYORG_EMACS_IS_CLIENT', False),
 		)
@@ -20,23 +20,23 @@ def get_emacs():
 	return g.emacs
 
 
-def get_org_interface():
-	"""Get ``OrgInterface`` instance to use with application context.
+def get_org():
+	"""Get ``Org`` instance to use with application context.
 
 	Returns
 	-------
-	pyorg.emacs.OrgInterface
+	pyorg.emacs.Org
 	"""
-	if 'orginterface' not in g:
-		from pyorg.interface import OrgInterface
+	if 'org' not in g:
+		from pyorg import Org
 
-		g.orginterface = OrgInterface(
+		g.org = Org(
 			emacs=get_emacs(),
 			orgdir=current_app.config.get('PYORG_ORG_DIRECTORY')
 		)
 
-	return g.orginterface
+	return g.org
 
 
 emacs = LocalProxy(get_emacs)
-orginterface = LocalProxy(get_org_interface)
+org = LocalProxy(get_org)

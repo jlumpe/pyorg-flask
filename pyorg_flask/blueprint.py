@@ -12,7 +12,7 @@ import jinja2
 from pyorg.ast import OrgNode
 from pyorg.html import OrgHtmlConverter
 
-from .base import orginterface
+from .base import org
 
 
 pyorg_flask = Blueprint('pyorg', __name__, template_folder='templates')
@@ -114,12 +114,12 @@ def make_toc(root):
 def view_org_file(path):
 
 	path = Path(path)
-	abspath = orginterface.orgdir.get_abs_path(path)
+	abspath = org.orgdir.get_abs_path(path)
 
 	if not abspath.is_file():
 		return render_template('orgfile-404.html.j2', file=str(path)), 404
 
-	content = orginterface.read_org_file(path, assign_ids=True)
+	content = org.read_org_file(path, assign_ids=True)
 	toc = make_toc(content)
 
 	# Display AST
@@ -132,7 +132,7 @@ def view_org_file(path):
 			toc=toc,
 		)
 
-	html = convert_org_data(content, wd=abspath.parent, orgdir=orginterface.orgdir.path)
+	html = convert_org_data(content, wd=abspath.parent, orgdir=org.orgdir.path)
 
 	return render_template(
 		'orgfile.html.j2',
@@ -148,7 +148,7 @@ def view_org_file(path):
 
 def view_org_directory(path):
 	path = Path(path)
-	abspath = orginterface.orgdir.get_abs_path(path)
+	abspath = org.orgdir.get_abs_path(path)
 
 	dirs = []
 	files = []
@@ -175,7 +175,7 @@ def view_org_directory(path):
 
 
 def get_other_file(filepath):
-	abspath = orginterface.orgdir.get_abs_path(filepath)
+	abspath = org.orgdir.get_abs_path(filepath)
 
 	if not abspath.exists():
 		abort(404)
@@ -189,7 +189,7 @@ def get_other_file(filepath):
 @pyorg_flask.route('/agenda')
 def agenda():
 
-	items = orginterface.agenda()
+	items = org.agenda()
 
 	from pyorg.html import OrgHtmlConverter
 	converter = OrgHtmlConverter()
