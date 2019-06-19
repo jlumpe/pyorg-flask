@@ -13,12 +13,25 @@ Sidebar / side menu
     text-decoration: none;
   }
 
-  .sidebar-icon {
+  .sidebar-top {
     background: #2980B9;
     color: #fcfcfc;
-    text-align: center;
 
-    padding: .8em;
+    padding-top: 10px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-top-menu {
+      font-size: 22px;
+      padding: .2em;
+
+      a {
+       margin: 0 .2em;
+      }
+    }
   }
 
   .sidebar-menu {

@@ -45,11 +45,9 @@
 {% endblock content %}
 
 
-{% block toc %}
-    {{ super() }}
-
-    <h2 class="sidebar-menu-section">Document</h2>
+{% block sidebar_menu %}
+    <h2 class="sidebar-menu-section">Contents</h2>
     <div id="file-toc">
     {{ sidebar_toc_list(toc) }}
     </div>
-{% endblock toc %}
+{% endblock sidebar_menu %}
