@@ -107,20 +107,15 @@
    ********************/
 
   &.org-item {
-    &.org-checkbox {
+    &.org-has-checkbox {
       list-style: none;
-      //position: relative;
+      position: relative;
 
-      &::before {
-        position: relative;
-        left: -1.4em;
-        width: 1em;
-        margin-right: -1em;
-        text-align: center;
+      & > .org-checkbox {
+        position: absolute;
+        left: -2.1em;
+        top: .3em;
       }
-      &.org-checkbox-on { @extend .ion-ios-checkmark; }
-      //&.org-checkbox-off { @extend .ion-ios-square-outline; }
-      &.org-checkbox-trans { @extend .ion-ios-remove; }  // TODO
     }
 
     // Can there be more than one?
@@ -174,7 +169,7 @@
   //font-family: sans-serif;
 }
 
-.org-todo {
+.org-todo-kw {
   @extend %headline-taglike;
   background-color: #f29f97;
 }
@@ -185,8 +180,8 @@
   // Default color for level C and below
   background-color: #dbf223;
 
-  &.org-todo-priority-A { background-color: #f25242; }
-  &.org-todo-priority-B { background-color: #f28d3d;}
+  &.org-priority-A { background-color: #f25242; }
+  &.org-priority-B { background-color: #f28d3d; }
 }
 
 .org-headline > .org-tags {
