@@ -115,12 +115,25 @@
     }
   }
 
+  // Definition lists
+  dl.org-plain-list {
+    & > dd.org-item {
+      margin-bottom: 10px;
+
+      // Remove margins around lists nested in a definition list item
+      & > .org-plain-list {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
   /********************
    * Headline-associated nodes
    ********************/
 
   &.org-planning {
-    margin-top: -20px;
+    //margin-top: -20px;
     margin-bottom: 20px;
 
     background: $bg-blue;
@@ -144,6 +157,7 @@
  ********************/
 
 .org-headline {
+  margin-bottom: 1em;
 
   & > * {
     vertical-align: middle;
@@ -193,9 +207,25 @@
 /********************
  * Outline structure
  ********************/
-.org-header-container:not(.org-header-level-1) {
-  & > .org-section, & > .org-header-container {
-    margin-left: $subsection-margin-left;
+
+.org-header-container {
+  margin-top: $section-margin-small;
+  margin-bottom: $section-margin-small;
+
+  &.org-header-level-1 {
+    margin-top: $section-margin-1;
+    margin-bottom: $section-margin-1;
+  }
+  &.org-header-level-2 {
+    margin-top: $section-margin-2;
+    margin-bottom: $section-margin-2;
+  }
+
+  // Left margin on nesting levels > 1
+  &:not(.org-header-level-1) {
+    & > .org-section, & > .org-header-container {
+      margin-left: $subsection-margin-left;
+    }
   }
 }
 
