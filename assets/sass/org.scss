@@ -3,15 +3,6 @@
  */
 
 
-.org-content {
-  //@extend .rst-content;
-}
-
-
-.org-tag {
-}
-
-
 /********************
  * Org AST nodes
  ********************/
@@ -28,7 +19,7 @@
     }
 
     &.org-linktype-radio {
-      color: #999;
+      color: $org-radio-color;
       text-decoration: underline;
     }
 
@@ -81,8 +72,8 @@
 
   &.org-quote-block, .org-verse-block {
     @extend %org-block-base;
-    border-left: 5px solid #6AB0DE;
-    background-color: #E7F2FA;
+    border-left: 5px solid $blue-dark;
+    background-color: $bg-blue;
     padding: 6px 20px;
     font-style: italic;
   }
@@ -132,8 +123,8 @@
     margin-top: -20px;
     margin-bottom: 20px;
 
-    background: #e7f2fa;
-    border-left: solid 3px #6ab0de;
+    background: $bg-blue;
+    border-left: solid 3px $blue-dark;
 
     font-size: 90%;
 
@@ -152,8 +143,15 @@
  * Headline stuff
  ********************/
 
-.org-headline > * {
-  vertical-align: middle;
+.org-headline {
+
+  & > * {
+    vertical-align: middle;
+  }
+
+  & > .org-tags {
+    float: right;
+  }
 }
 
 // A bit more space after TODO stuff
@@ -171,26 +169,22 @@
 
 .org-todo-kw {
   @extend %headline-taglike;
-  background-color: #f29f97;
+  background-color: $todo-kw-color;
 }
 
 .org-todo-priority {
   @extend %headline-taglike;
 
-  // Default color for level C and below
-  background-color: #dbf223;
-
-  &.org-priority-A { background-color: #f25242; }
-  &.org-priority-B { background-color: #f28d3d; }
+  background-color: $todo-priority-color-default;
+  &.org-priority-A { background-color: $todo-priority-color-A; }
+  &.org-priority-B { background-color: $todo-priority-color-B; }
+  &.org-priority-C { background-color: $todo-priority-color-C; }
 }
 
-.org-headline > .org-tags {
-  float: right;
-}
 
 .org-tag {
   @extend %headline-taglike;
-  background-color: #666;
+  background-color: $org-tag-bg;
   font-weight: normal;
   font-size: 75%;
 }
@@ -214,16 +208,17 @@ div.org-node.org-error {
   @extend %block-margins;
 
   padding: 12px;
-  background: #fdf3f2;
+  background: $bg-red;
 
   & > .org-error-msg {
     margin: -12px;
     padding: 6px 12px;
-    background: #f29f97;
+    background: $red-light;
     color: #fff;
 
     &:not(:last-child) { margin-bottom: 12px; }
 
+    // Icon
     @extend .ion-ios-alert;
     &::before {
       margin-left: -.25em;
@@ -231,6 +226,7 @@ div.org-node.org-error {
     }
   }
 
+  // Nested errors
   & > & {
     margin-bottom: 6px;
     &:last-child { margin-bottom: 0; }
@@ -241,10 +237,6 @@ div.org-node.org-error {
   color: $org-error-font-color;
 }
 
-.org-error-msg {
-  //@extend .wy-alert;
-  //@extend .wy-alert.wy-alert-danger;
-}
 
 
 /********************
@@ -271,7 +263,6 @@ table.agenda-table {
   font-size: 75%;
 }
 
-
 @mixin priority-letter($color) {
   color: $color;
   border-color: $color;
@@ -287,7 +278,7 @@ table.agenda-table {
   border: 1px solid;
   border-radius: .25em;
 
-  &.priority-A { @include priority-letter(#FF0000); }
-  &.priority-B { @include priority-letter(#FF9900); }
-  &.priority-C { @include priority-letter(#99FF00); }
+  &.priority-A { @include priority-letter(#ff3333); }
+  &.priority-B { @include priority-letter(#ff9900); }
+  &.priority-C { @include priority-letter(#99ff00); }
 }

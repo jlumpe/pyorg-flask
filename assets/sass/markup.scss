@@ -9,7 +9,7 @@ code {
   max-width: 100%;
   color: $code-color;
   padding: 2px 5px;
-  background: #fff;
+  background: $code-bg;
   font-size: 75%;
   border: solid 1px $code-border-color;
   font-family: Consolas,"Lucida Console",Monaco,"Courier New",Courier,monospace;
@@ -21,9 +21,9 @@ Block tags
  */
 
 p{
-  font-size:16px;
-  line-height:24px;
-  margin:0px 0px 24px 0px;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 24px 0;
 }
 
 
@@ -32,12 +32,12 @@ Links
  */
 
 a {
-  color: #2980B9;
+  color: $link-color;
   text-decoration: none;
   cursor: pointer;
 
   &:visited {
-    color: #9B59B6;
+    color: $link-color-visited;
   }
 }
 
@@ -103,7 +103,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #e1e4e5;
+  border-top: 1px solid $border-light;
   margin: 24px 0;
   padding: 0;
 }

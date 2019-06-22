@@ -5,6 +5,18 @@ $fonts-path: "../fonts";
 
 
 /*
+Colors
+ */
+$blue-dark: #6ab0de;
+$red-light: #f29f97;
+
+$bg-blue: #e7f2fa;
+$bg-red: #fdf3f2;
+
+$border-light: #e1e4e5;
+
+
+/*
 Layout
  */
 $sidebar-width: 300px;
@@ -25,27 +37,45 @@ Outline
  */
 $subsection-margin-left: 5px;
 
+$section-margin-1: 50px;
+$section-margin-2: 30px;
+$section-margin-small: 15px;
+
+$todo-kw-color: #f29f97;
+
+$todo-priority-color-default: #dbf223;
+$todo-priority-color-A: #f25242;
+$todo-priority-color-B: #f28d3d;
+$todo-priority-color-C: $todo-priority-color-default;
+
 
 /*
 Inline markup
  */
-$code-color: #E74C3C;
-$code-border-color: #e1e4e5;
+$link-color: #2980B9;
+$link-color-visited: #9B59B6;
+
+$org-radio-color: #999;
+
+$code-color: #e74c3c;
+$code-bg: #fff;
+$code-border-color: $border-light;
 
 
 /*
 Tables
  */
-$table-border-color: #e1e4e5;
+$table-border-color: $border-light;
 
 
 /*
 Org elements
  */
-$org-timestamp-active-color: #2980B9;
+$org-timestamp-active-color: #2980b9;
 $org-timestamp-inactive-color: #666;
 
 $org-error-font-color: red;
+$org-tag-bg: #666;
 
 
 /*
