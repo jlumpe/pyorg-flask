@@ -1,20 +1,5 @@
-"""Basic Flask application."""
+"""Application object is created on import and stored in :data:`app`."""
 
-from flask import Flask, render_template
+from .factory import create_app
 
-from .blueprint import pyorg_flask
-
-
-app = Flask(__package__)
-
-
-app.config.from_object(__package__ + '.config_default')
-app.config.from_envvar('PYORG_CONFIG', silent=True)
-
-
-@app.route('/')
-def home():
-	return render_template('home.html.j2')
-
-
-app.register_blueprint(pyorg_flask)
+app = create_app()
