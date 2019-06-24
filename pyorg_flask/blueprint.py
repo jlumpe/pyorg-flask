@@ -10,9 +10,9 @@ import jinja2
 
 
 from pyorg.ast import OrgNode
-from pyorg.html import OrgHtmlConverter
 
 from .base import org
+from .convert import PyorgFlaskHtmlConverter
 
 
 pyorg_flask = Blueprint('pyorg', __name__, template_folder='templates')
@@ -67,7 +67,7 @@ def get_converter(orgdir=None, wd=None):
 	config = dict(
 		resolve_link=resolve_link,
 	)
-	return OrgHtmlConverter(config)
+	return PyorgFlaskHtmlConverter(config)
 
 
 def convert_org_data(data, **kw):
@@ -191,7 +191,7 @@ def agenda():
 
 	items = org.agenda()
 
-	from pyorg.html import OrgHtmlConverter
+	from pyorg.convert.html import OrgHtmlConverter
 	converter = OrgHtmlConverter()
 
 	for item in items:
