@@ -3,16 +3,11 @@ Representation of org AST nodes.
  */
 
 
-$org-ast-border-color: lightgray;
-$org-ast-properties-border-color: lightblue;
-$org-ast-properties-background-color: #e7f4f9;
-
-
 .org-ast-node {
   border: 1px solid $org-ast-border-color;
   padding: 5px;
 
-  & > :not(last-child), & > org-ast-contents > :not(last-child) {
+  & > :not(last-child), & > .org-ast-contents > :not(last-child) {
     margin-bottom: 15px;
   }
 

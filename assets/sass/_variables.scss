@@ -2,6 +2,7 @@
 Fonts
  */
 $fonts-path: "../fonts";
+$font-color: #404040;
 
 
 /*
@@ -14,6 +15,9 @@ $bg-blue: #e7f2fa;
 $bg-red: #fdf3f2;
 
 $border-light: #e1e4e5;
+
+$body-bg: #edf0f2;
+$content-bg: #fcfcfc;
 
 
 /*
@@ -30,6 +34,17 @@ $sidebar-bg-color: #343131;
 $sidebar-color: #d9d9d9;
 $sidebar-section-header-color: #3a7ca8;
 $sidebar-link-hover-bg: #4e4a4a;
+$sidebar-top-color: #fcfcfc;
+$sidebar-top-bg: #2980b9;
+
+$sidebar-toc-active-color: #404040;
+$sidebar-toc-nested-color: #404040;
+$sidebar-toc-active-bg: #fcfcfc;
+$sidebar-toc-active-hover-bg: #d6d6d6;
+$sidebar-toc-active-bg-1: #e3e3e3;
+$sidebar-toc-active-border-1: #c9c9c9;
+$sidebar-toc-active-bg-2: #c9c9c9;
+$sidebar-toc-bg-3: #c9c9c9;
 
 
 /*
@@ -82,3 +97,11 @@ $org-tag-bg: #666;
 Agenda
  */
 $agenda-table-border-color: #bfbfbf;
+
+
+/*
+AST
+ */
+$org-ast-border-color: lightgray;
+$org-ast-properties-border-color: lightblue;
+$org-ast-properties-background-color: #e7f4f9;

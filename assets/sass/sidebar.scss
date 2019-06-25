@@ -14,8 +14,8 @@ Sidebar / side menu
   }
 
   .sidebar-top {
-    background: #2980B9;
-    color: #fcfcfc;
+    background: $sidebar-top-bg;
+    color: $sidebar-top-color;
 
     padding-top: 10px;
 
@@ -88,13 +88,13 @@ Sidebar / side menu
     li.active {
 
       & > a {
-        color: #404040;
-        background: #fcfcfc;
+        color: $sidebar-toc-active-color;
+        background: $sidebar-toc-active-bg;
         font-weight: bold;
       }
 
       a:hover {
-        background: #d6d6d6;
+        background: $sidebar-toc-active-hover-bg;
       }
 
       // Show nested lists
@@ -105,16 +105,16 @@ Sidebar / side menu
 
     // Nested
     li ul li {
-      color: #404040;
+      color: $sidebar-toc-nested-color;
     }
 
     // Level one
     li.toctree-l1 {
       &.active {
-        background: #e3e3e3;
+        background: $sidebar-toc-active-bg-1;
         & > a {
-          border-bottom: solid 1px #c9c9c9;
-          border-top: solid 1px #c9c9c9;
+          border-bottom: solid 1px $sidebar-toc-active-border-1;
+          border-top: solid 1px $sidebar-toc-active-border-1;
         }
       }
     }
@@ -125,8 +125,8 @@ Sidebar / side menu
         padding-left: 2.5em;
       }
 
-      &.active > a{
-        background: #c9c9c9;
+      &.active > a {
+        background: $sidebar-toc-active-bg-2;
       }
     }
 
@@ -136,10 +136,7 @@ Sidebar / side menu
 
       & > a {
         padding-left: 3.5em;
-        background: #c9c9c9;
-      }
-
-      &.active > a{
+        background: $sidebar-toc-bg-3;
       }
     }
 
