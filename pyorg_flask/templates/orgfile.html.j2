@@ -22,8 +22,8 @@
 {% block content %}
 
 	{# Breadcrumbs #}
-	<div>
-        <ul class="breadcrumbs">
+	<nav class="breadcrumbs">
+        <ul>
 			{% for dirname in ['root'] + (parents | list) %}
 				<li>
 					<a href="./{{ '../' * (depth - loop.index0) }}">{{ dirname }}</a>
@@ -32,7 +32,7 @@
 			<li>{{ file_name }}</li>
 		</ul>
 		<hr/>
-	</div>
+	</nav>
 
 	{{ file_content }}
 

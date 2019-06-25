@@ -9,14 +9,14 @@
     <div class="container">
 
         {# Breadcrumbs #}
-        <div><ul class="breadcrumbs">
+        <nav class="breadcrumbs"><ul>
             {% for parent in parents | list %}
                 <li>
                     <a href="./{{ '../' * (depth - loop.index0) }}">{{ parent }}</a>
                 </li>
             {% endfor %}
             <li>{{ dirname }}</li>
-        </ul></div>
+        </ul></nav>
 
         <hr/>
 
