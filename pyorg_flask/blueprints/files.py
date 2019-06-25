@@ -72,10 +72,12 @@ def get_converter(orgdir=None, wd=None):
 	return PyorgFlaskHtmlConverter(config)
 
 
-def convert_org_data(data, **kw):
+def convert_org_data(data, title=True, **kw):
 	"""Convert org file data to raw HTML."""
 	converter = get_converter(**kw)
-	return converter.convert(data)
+	html = converter.convert(data, title=title, dom=True)
+	html.add_class('org-content')
+	return html
 
 
 @files_bp.context_processor
@@ -134,14 +136,13 @@ def view_org_file(path):
 			toc=toc,
 		)
 
-	html = convert_org_data(content, wd=abspath.parent, orgdir=org.orgdir.path)
+	title = content.title or abspath.stem
+	html = convert_org_data(content, title=title, wd=abspath.parent, orgdir=org.orgdir.path)
 
 	return render_template(
 		'orgfile.html.j2',
-		ast=content,
-		file_content=Markup(html),
+		file_content=Markup(str(html)),
 		file_name=path.name,
-		file_title=content.title or abspath.stem,
 		parents=path.parent.parts,
 		# source_json=json.dumps(data, indent=4, sort_keys=True),
 		toc=toc,
