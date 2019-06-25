@@ -29,8 +29,10 @@ def create_app(config_file=None, config=None):
 		app.config.from_mapping(config)
 
 	# Register blueprints
-	from .blueprint import pyorg_flask
-	app.register_blueprint(pyorg_flask)
+	from .blueprints.files import files_bp
+	app.register_blueprint(files_bp, url_prefix='/files/')
+	from .blueprints.agenda import agenda_bp
+	app.register_blueprint(agenda_bp, url_prefix='/agenda/')
 
 	# Routes
 	@app.route('/')
