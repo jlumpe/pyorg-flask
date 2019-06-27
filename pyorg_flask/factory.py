@@ -2,6 +2,8 @@
 
 from flask import Flask, render_template
 
+from pyorg.emacs import EmacsException
+
 
 def create_app(config_file=None, config=None):
 	"""Create the pyorg Flask application object.
@@ -35,5 +37,9 @@ def create_app(config_file=None, config=None):
 	app.register_blueprint(files_bp, url_prefix='/files')
 	from .blueprints.agenda import bp as agenda_bp
 	app.register_blueprint(agenda_bp, url_prefix='/agenda')
+
+	@app.errorhandler(EmacsException)
+	def handle_emacs_exception(exc):
+		return render_template('emacs-error.html.j2', exc=exc), 500
 
 	return app

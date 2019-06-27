@@ -1,13 +1,15 @@
-{# Emacs error when trying to view org file #}
+{# Emacs error display #}
 {% extends 'rtd_base.html.j2' %}
 
 {% set page_title = 'Emacs error - pyorg' %}
 
 {% block content %}
 
-    <h1>Error communicating with Emacs</h1>
+    <h1>Error evaluating Elisp code</h1>
 
-    <pre class="pre-wrap">{{ exc }}</pre>
+    <h4>Source</h4>
+
+    <pre class="pre-wrap">{{ exc.src }}</pre>
 
     <h4>Contents of stdout:</h4>
 
