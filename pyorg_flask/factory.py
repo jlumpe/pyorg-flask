@@ -29,14 +29,11 @@ def create_app(config_file=None, config=None):
 		app.config.from_mapping(config)
 
 	# Register blueprints
-	from .blueprints.files import files_bp
-	app.register_blueprint(files_bp, url_prefix='/files/')
-	from .blueprints.agenda import agenda_bp
-	app.register_blueprint(agenda_bp, url_prefix='/agenda/')
-
-	# Routes
-	@app.route('/')
-	def home():
-		return render_template('home.html.j2')
+	from .blueprints.core import bp as core_bp
+	app.register_blueprint(core_bp, url_prefix='/')
+	from .blueprints.files import bp as files_bp
+	app.register_blueprint(files_bp, url_prefix='/files')
+	from .blueprints.agenda import bp as agenda_bp
+	app.register_blueprint(agenda_bp, url_prefix='/agenda')
 
 	return app

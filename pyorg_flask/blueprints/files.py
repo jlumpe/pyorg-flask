@@ -17,7 +17,7 @@ from ..base import org
 from ..convert import PyorgFlaskHtmlConverter
 
 
-files_bp = Blueprint('files', __name__, template_folder='../templates')
+bp = Blueprint('files', __name__, template_folder='../templates')
 
 
 
@@ -80,25 +80,25 @@ def convert_org_data(data, title=True, **kw):
 	return html
 
 
-@files_bp.context_processor
+@bp.context_processor
 def context_processor():
 	return dict(
 		favorite_files=current_app.config.get('ORG_FAVORITE_FILES', []),
 	)
 
 @jinja2.contextfilter
-@files_bp.app_template_test('orgnode')
+@bp.app_template_test('orgnode')
 def test_orgast(value):
 	return isinstance(value, OrgNode)
 
 
-@files_bp.errorhandler(CalledProcessError)
+@bp.errorhandler(CalledProcessError)
 def handle_emacs_error(exc):
 	return render_template('emacs-error.html.j2', exc=exc)
 
 
-@files_bp.route('/')
-@files_bp.route('/<path:path>')
+@bp.route('/')
+@bp.route('/<path:path>')
 def viewpath(path=''):
 	if not path or path.endswith('/'):
 		return view_org_directory(path)

@@ -9,7 +9,7 @@
 	<nav class="sidebar">
 		{% block sidebar %}
 			<div class="sidebar-top">
-                <h2><a href="{{ url_for('home') }}">pyorg</a></h2>
+                <h2><a href="{{ url_for('core.home') }}">pyorg</a></h2>
                 <div class="sidebar-top-menu">
                     <a href="{{ url_for('files.viewpath') }}" title="Org directory"><i class="ion-ios-folder"></i></a>
                     <a href="{{ url_for('agenda.agenda') }}" title="Agenda"><i class="ion-ios-calendar"></i></a>

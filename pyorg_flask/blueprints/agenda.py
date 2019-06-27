@@ -6,11 +6,11 @@ from pyorg.convert.html import OrgHtmlConverter
 from ..base import org
 
 
-agenda_bp = Blueprint('agenda', __name__, template_folder='../templates')
+bp = Blueprint('agenda', __name__, template_folder='../templates')
 
 
 
-@agenda_bp.route('/')
+@bp.route('/')
 def agenda():
 
 	items = org.agenda()
