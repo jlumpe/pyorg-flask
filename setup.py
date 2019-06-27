@@ -20,7 +20,6 @@ with open('pyorg_flask/__init__.py') as fh:
 	version = version_match.group(1)
 
 
-
 requirements = [
 	'pyorg',
 	'Flask~=1.0',
