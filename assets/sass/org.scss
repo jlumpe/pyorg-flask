@@ -268,6 +268,23 @@ div.org-node.org-error {
 }
 
 
+/********************
+ * Other pyorg stuff
+ ********************/
+.org-headline {
+  & > .pyorg-open-header {
+    @extend .ion-md-open;
+    visibility: hidden;
+    font-size: 90%;
+    margin-left: .5em;
+    color: #ccc;
+
+    &:hover { color: #666; }
+  }
+
+  &:hover > .pyorg-open-header { visibility: visible; }
+}
+
 
 /********************
  * Directory page

@@ -142,6 +142,7 @@ def view_org_file(path):
 	return render_template(
 		'orgfile.html.j2',
 		file_content=Markup(str(html)),
+		file_path=path,
 		file_name=path.name,
 		parents=path.parent.parts,
 		# source_json=json.dumps(data, indent=4, sort_keys=True),

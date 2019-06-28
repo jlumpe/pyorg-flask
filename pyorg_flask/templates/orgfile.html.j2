@@ -11,9 +11,22 @@
 {{ super() }}
 
 <script type="text/javascript">
-    // Enable scrollspy
+    "use strict";
+
+    let pyorg_data = {
+        file_open_url: "{{ url_for('api.open_orgfile', path=file_path) }}",
+    };
+
 	$( document ).ready(function() {
+        // Enable scrollspy
 		$('body').scrollspy({target: '#file-toc'});
+
+		// Open headers in Emacs
+        // TODO: actually navigate to header instead of just file
+		$('a.pyorg-open-header').click(function () {
+		   console.log('Opening ' + pyorg_data.file_open_url);
+		   $.post(pyorg_data.file_open_url);
+        });
 	});
 </script>
 {% endblock head %}
