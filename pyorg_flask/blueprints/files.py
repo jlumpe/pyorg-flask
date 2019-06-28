@@ -42,7 +42,7 @@ def file_link_resolver(orgdir, wd=None):
 		assert not str(relpath).startswith('/')
 		assert not str(relpath).startswith('.')
 
-		return url_for('pyorg.viewfile', path=str(relpath))
+		return url_for('files.viewpath', path=str(relpath))
 
 	return resolver
 
@@ -184,6 +184,6 @@ def get_other_file(filepath):
 		abort(404)
 
 	if abspath.is_dir():
-		return redirect(url_for('pyorg.viewfile', path=filepath + '/'))
+		return redirect(url_for('files.viewpath', path=filepath + '/'))
 
 	return send_file(str(abspath))
