@@ -37,8 +37,8 @@ def create_app(config_file=None, config=None):
 	app.register_blueprint(files_bp, url_prefix='/files')
 	from .blueprints.agenda import bp as agenda_bp
 	app.register_blueprint(agenda_bp, url_prefix='/agenda')
-	from .blueprints.api import api_bp
-	app.register_blueprint(api_bp, url_prefix='/api')
+	from .blueprints.api import api
+	app.register_blueprint(api, url_prefix='/api')
 
 	@app.errorhandler(EmacsException)
 	def handle_emacs_exception(exc):
