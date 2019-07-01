@@ -21,7 +21,7 @@ with open('pyorg_flask/__init__.py') as fh:
 
 
 requirements = [
-	'pyorg',
+	# 'pyorg',
 	'Flask~=1.0',
 ]
 
@@ -43,7 +43,7 @@ setup(
 	setup_requires=setup_requirements,
 	tests_require=test_requirements,
 	include_package_data=True,
-	dependency_links=['http://github.com/jlumpe/pyorg/tarball/master'],
+	dependency_links=['http://github.com/jlumpe/pyorg/tarball/master#egg=pyorg-0.1'],
 	# license='',
 	# classifiers='',
 	# keywords=[],
