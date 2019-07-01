@@ -44,6 +44,11 @@ setup(
 	tests_require=test_requirements,
 	include_package_data=True,
 	dependency_links=['http://github.com/jlumpe/pyorg/tarball/master#egg=pyorg-0.1'],
+	entry_points={
+		'console_scripts': [
+			'pyorg-flask=pyorg_flask.cli:cli',
+		],
+	},
 	# license='',
 	# classifiers='',
 	# keywords=[],
