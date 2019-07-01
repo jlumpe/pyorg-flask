@@ -4,6 +4,7 @@
   "description": "pyorg web app.",
   "directories": {},
   "scripts": {
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
