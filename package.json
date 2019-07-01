@@ -18,13 +18,13 @@
   "homepage": "https://github.com/jlumpe/pyorg#readme",
   "dependencies": {
     "bootstrap": "^3.4.1",
-    "ionicons": "^4.5.6",
-    "jquery": "^3.3.1",
+    "ionicons": "^4.6.1",
+    "jquery": "^3.4.1",
     "mathjax": "^2.7.5"
   },
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
