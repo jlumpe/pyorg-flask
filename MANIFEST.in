@@ -7,3 +7,6 @@ recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
 recursive-include docs *.rst conf.py Makefile make.bat
+
+recursive-include pyorg_flask/templates *.j2
+recursive-include pyorg_flask/static *.*
