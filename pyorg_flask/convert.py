@@ -14,16 +14,6 @@ class PyorgFlaskHtmlConverter(OrgHtmlConverter):
 
 	def _make_headline(self, headline, ctx):
 		elem = super()._make_headline(headline, ctx)
-
-		text_idx = 0
-		for i, child in enumerate(elem.children):
-			if 'org-header-text' in child.classes:
-				test_idx = i
-				break
-		else:
-			assert False
-
 		button = self._make_elem_base('a', classes='pyorg-open-header', post_ws=True)
-		elem.children.insert(text_idx + 1, button)
-
+		elem.children.append(button)
 		return elem
