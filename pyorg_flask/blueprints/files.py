@@ -12,6 +12,7 @@ import jinja2
 
 
 from pyorg.ast import OrgNode
+from pyorg.convert.plaintext import to_plaintext
 
 from ..base import org
 from ..convert import PyorgFlaskHtmlConverter
@@ -72,10 +73,16 @@ def get_converter(orgdir=None, wd=None):
 	return PyorgFlaskHtmlConverter(config)
 
 
-def convert_org_data(data, title=True, **kw):
-	"""Convert org file data to raw HTML."""
+def convert_org_doc(doc, title=True, **kw):
+	"""Convert org document to raw HTML.
+
+	Parameters
+	----------
+	doc : pyorg.ast.OrgDocument
+	title : bool
+	"""
 	converter = get_converter(**kw)
-	html = converter.convert(data, title=title, dom=True)
+	html = converter.convert(doc.root, title=title, dom=True)
 	html.add_class('org-content')
 	return html
 
@@ -123,21 +130,22 @@ def view_org_file(path):
 	if not abspath.is_file():
 		return render_template('orgfile-404.html.j2', file=str(path)), 404
 
-	content = org.read_org_file(path, assign_ids=True)
-	toc = make_toc(content)
+	doc = org.read_org_file(path)
+	doc.assign_header_ids()
+	toc = make_toc(doc.root)
 
 	# Display AST
 	if request.args.get('show', '').lower() == 'ast':
 		return render_template(
 			'orgfile-ast.html.j2',
-			ast=content,
+			ast=doc.root,
 			file_name=path.name,
 			parents=path.parent.parts,
 			toc=toc,
 		)
 
-	title = content.title or abspath.stem
-	html = convert_org_data(content, title=title, wd=abspath.parent, orgdir=org.orgdir.path)
+	title = to_plaintext(doc.keywords.get('title', abspath.stem))
+	html = convert_org_doc(doc, title=title, wd=abspath.parent, orgdir=org.orgdir.path)
 
 	return render_template(
 		'orgfile.html.j2',
