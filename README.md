@@ -92,7 +92,7 @@ python setup.py install
 ```
 
 
-# Running the app
+## Running the app
 
 First, start the Emacs server with `(server-start)`. Then run
 
