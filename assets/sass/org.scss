@@ -127,28 +127,6 @@
       }
     }
   }
-
-  /********************
-   * Headline-associated nodes
-   ********************/
-
-  &.org-planning {
-    //margin-top: -20px;
-    margin-bottom: 20px;
-
-    background: $bg-blue;
-    border-left: solid 3px $blue-dark;
-
-    font-size: 90%;
-
-    th {
-      font-weight: bold;
-    }
-    th, td {
-      text-align: left;
-      padding: 2px 4px;
-    }
-  }
 }
 
 
@@ -201,6 +179,24 @@
   background-color: $org-tag-bg;
   font-weight: normal;
   font-size: 75%;
+}
+
+.org-planning {
+  //margin-top: -20px;
+  margin-bottom: 20px;
+
+  background: $bg-blue;
+  border-left: solid 3px $blue-dark;
+
+  font-size: 90%;
+
+  th {
+    font-weight: bold;
+  }
+  th, td {
+    text-align: left;
+    padding: 2px 4px;
+  }
 }
 
 

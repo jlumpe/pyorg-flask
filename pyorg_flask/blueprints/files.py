@@ -117,10 +117,10 @@ def viewpath(path=''):
 
 
 def _make_toc(node):
-	return (node.title, node.id, list(map(_make_toc, node.outline_children)))
+	return (node.title, node.id, list(map(_make_toc, node.subheadings)))
 
 def make_toc(root):
-	return list(map(_make_toc, root.outline_children))
+	return list(map(_make_toc, root.subheadings))
 
 def view_org_file(path):
 
