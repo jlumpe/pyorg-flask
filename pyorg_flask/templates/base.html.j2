@@ -16,44 +16,18 @@
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <!-- MathJax configuration -->
-            <script type="text/x-mathjax-config">{% raw %}
-                MathJax.Hub.Config({
-					TeX: {
-						Macros: {
-							"Vect": ["\\boldsymbol{#1}", 1],
-							"Mat": ["\\boldsymbol{#1}", 1],
-							"Vectmu": "\\Vect{\\mu}",
-							"Vectx": "\\Vect{x}",
-							"Vecty": "\\Vect{y}",
-							"Vectu": "\\Vect{u}",
-							"Vectv": "\\Vect{v}",
-							"MatSigma": "\\Mat{\\Sigma}",
-							"Reals": "\\mathbb{R}",
-							"Complexes": "\\mathbb{C}",
-							"Rationals": "\\mathbb{Q}",
-							"Integers": "\\mathbb{Z}",
-							"Naturals": "\\mathbb{N}",
-							"Vectors": ["\\Reals^{#1}", 1],
-							"Matrices": ["\\Reals^{#1 \\times #2}", 2],
-							"Partial": ["\\frac{\\partial #1}{\\partial #2}", 2],
-							"Partiall": ["\\frac{\\partial #1}{\\partial #2 \\partial #3}", 3],
-							"Partialll": ["\\frac{\\partial #1}{\\partial #2 \\partial #3 \\partial #4}", 4],
-							"DKL": ["D_\\text{KL}(#1 \\parallel #2)", 2],
-							"Quadform": ["#1^T #2 #1", 2],
-							"Quadformt": ["#1 #2 #1^T", 2]
-						}
-					}
-				});
-			{% endraw %}</script>
-
 			<!-- js -->
             <script type="text/javascript" src="{{ url_for('static', filename='lib/MathJax/MathJax.js') }}?config=TeX-AMS_HTML-full"></script>
             <script type="text/javascript" src="{{ url_for('static', filename='lib/libs.js') }}"></script>
             <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 
 			<!-- Site-wide CSS -->
-            <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}"/>
+			<link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}"/>
+
+			{% if user_head -%}
+				<!-- From PYORG_HTML_HEAD config variable -->
+				{{ user_head }}
+			{% endif %}
 
 		{% endblock head %}
 	</head>

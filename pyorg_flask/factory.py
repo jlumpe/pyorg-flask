@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 
 from pyorg.emacs import EmacsException
 
@@ -57,6 +57,13 @@ def create_app(config_file=None, config=None):
 	@app.errorhandler(EmacsException)
 	def handle_emacs_exception(exc):
 		return render_template('emacs-error.html.j2', exc=exc), 500
+
+	# Template environment
+	@app.context_processor
+	def context_processor():
+		return dict(
+			user_head=current_app.config.get('PYORG_HTML_HEAD')
+		)
 
 	# Imports for shell context
 	@app.shell_context_processor

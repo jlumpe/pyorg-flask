@@ -17,3 +17,19 @@ PYORG_FAVORITE_FILES = []
 # Shell to use for the "shell" CLI command. "builtin" to use Python's builtin REPL,
 # "ipython" to use IPython if installed.
 PYORG_SHELL = 'builtin'
+
+
+# Raw HTML to insert at the end of the <head> element on every page.
+# You can use this to insert custom CSS or Javascript or configure MathJax
+# PYORG_HTML_HEAD = '''\
+# <!-- MathJax configuration -->
+# <script type="text/x-mathjax-config">
+# 	MathJax.Hub.Config({
+# 		TeX: {
+# 			Macros: {
+# 				"MyCustomMacro": ["\\boldsymbol{#1}", 1],
+# 			}
+# 		}
+# 	});
+# </script>
+# '''
