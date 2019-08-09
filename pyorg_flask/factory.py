@@ -40,8 +40,15 @@ def create_app(config_file=None, config=None):
 	from .blueprints.api import api
 	app.register_blueprint(api, url_prefix='/api')
 
+	# Handle errors in Emacs interface
 	@app.errorhandler(EmacsException)
 	def handle_emacs_exception(exc):
 		return render_template('emacs-error.html.j2', exc=exc), 500
+
+	# Imports for shell context
+	@app.shell_context_processor
+	def shell_context():
+		from .base import emacs, org
+		return dict(emacs=emacs, org=org)
 
 	return app
