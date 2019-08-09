@@ -1,10 +1,12 @@
 import os
+from shutil import copyfileobj
 
 import click
 from flask import current_app
 from flask.cli import FlaskGroup, with_appcontext, shell_command as flask_shell
+from pkg_resources import resource_stream
 
-from .factory import create_app
+from .factory import create_app, DEFAULT_CONFIG_PATH
 
 
 @click.group(cls=FlaskGroup, create_app=create_app)
@@ -73,3 +75,36 @@ def shell_command(ctx, shell):
 
 	# Run default version of command.
 	ctx.invoke(flask_shell)
+
+
+@cli.group('config')
+def config_group():
+	"""Manage app configuration."""
+
+
+def locate_config():
+	path = os.environ.get('PYORG_CONFIG', DEFAULT_CONFIG_PATH)
+	return os.path.abspath(os.path.expanduser(path))
+
+
+@config_group.command('locate', with_appcontext=False)
+def locate_config_command():
+	"""Get the path the application looks for the config file at."""
+	click.echo(locate_config())
+
+
+@config_group.command('init', with_appcontext=False)
+@click.argument('file', required=False)
+@click.option('-f', '--force', is_flag=True, help='Overwrite existing configuration files.')
+def init_config_command(file, force):
+	"""Create a default configuration file at the appropriate location."""
+	if file is None:
+		file = locate_config()
+
+	if os.path.exists(file) and not force:
+		raise click.ClickException('File %s already exists. Use --force option to overwrite.' % file)
+
+	with resource_stream(__package__, 'config_default.py') as src, open(file, 'wb') as dst:
+		copyfileobj(src, dst)
+
+	click.echo('Configuration file written to %s' % os.path.abspath(file))

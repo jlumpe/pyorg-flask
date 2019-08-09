@@ -1,8 +1,14 @@
 """Application factory."""
 
+import os
+
 from flask import Flask, render_template
 
 from pyorg.emacs import EmacsException
+
+
+#: Default location of the config file
+DEFAULT_CONFIG_PATH = '~/.pyorg-config.py'
 
 
 def create_app(config_file=None, config=None):
@@ -21,12 +27,19 @@ def create_app(config_file=None, config=None):
 	"""
 	app = Flask(__package__)
 
-	# Configuration
+	# Default configuration
 	app.config.from_object(__package__ + '.config_default')
+
+	# User config file - from argument, environment variable, or default
+	silent = False
 	if config_file is None:
-		app.config.from_envvar('PYORG_CONFIG', silent=True)
-	else:
-		app.config.from_pyfile(config_file)
+		config_file = os.environ.get('PYORG_CONFIG')
+	if config_file is None:
+		config_file = DEFAULT_CONFIG_PATH
+		silent = True
+	app.config.from_pyfile(os.path.expanduser(config_file), silent=silent)
+
+	# Update from supplied mapping
 	if config is not None:
 		app.config.from_mapping(config)
 
