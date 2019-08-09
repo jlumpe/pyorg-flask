@@ -13,3 +13,7 @@ PYORG_EMACS_IS_CLIENT = True
 
 # List of favorite files (relative to org directory).
 PYORG_FAVORITE_FILES = []
+
+# Shell to use for the "shell" CLI command. "builtin" to use Python's builtin REPL,
+# "ipython" to use IPython if installed.
+PYORG_SHELL = 'builtin'
