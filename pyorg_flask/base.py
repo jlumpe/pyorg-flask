@@ -10,7 +10,7 @@ def get_emacs():
 	pyorg.emacs.Emacs
 	"""
 	if 'emacs' not in g:
-		from pyorg import Emacs
+		from emacs import Emacs
 
 		g.emacs = Emacs(
 			cmd=current_app.config.get('PYORG_EMACS_CMD'),

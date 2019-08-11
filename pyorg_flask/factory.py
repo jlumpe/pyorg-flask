@@ -4,7 +4,7 @@ import os
 
 from flask import Flask, render_template, current_app
 
-from pyorg.emacs import EmacsException
+from emacs import EmacsException
 
 
 #: Default location of the config file
