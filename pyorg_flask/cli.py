@@ -88,6 +88,19 @@ def locate_app_dir_command():
 	click.echo(locate_app_dir())
 
 
+@config_group.command('print')
+def print_config_command():
+	"""Print the application configuration values."""
+	from pprint import pprint
+	stdout = click.get_text_stream('stdout')
+	w, h = click.get_terminal_size()
+
+	for key in sorted(current_app.config):
+		value = current_app.config[key]
+		click.echo(key + ' = ', nl=False)
+		pprint(value, stdout, width=w)
+
+
 @config_group.command('init', with_appcontext=False)
 @click.argument('path', required=False)
 @click.option('-f', '--force', is_flag=True, help='Overwrite existing directory.')
