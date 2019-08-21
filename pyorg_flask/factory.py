@@ -7,17 +7,37 @@ from flask import Flask, render_template, current_app
 from emacs import EmacsException
 
 
-#: Default location of the config file
-DEFAULT_CONFIG_PATH = '~/.pyorg-config.py'
+#: Default location of the application directory
+DEFAULT_APP_DIR = '~/.pyorg'
 
 
-def create_app(config_file=None, config=None):
+def locate_app_dir(path=None):
+	"""Locate the application directory.
+
+	Parameters
+	----------
+	path : str
+		Optional, overrides default method of finding application directory and
+		just returns the argument (after normalizing) if given. If None will
+		attempt to get from ``PYORG_DIR`` environment variable, followed by
+		:data:`.DEFAULT_APP_DIR`.
+
+	Returns
+	-------
+	str
+	"""
+	if path is None:
+		path = os.environ.get('PYORG_DIR', DEFAULT_APP_DIR)
+	return os.path.abspath(os.path.expanduser(path))
+
+
+def create_app(app_dir=None, config=None):
 	"""Create the pyorg Flask application object.
 
 	Parameters
 	----------
-	config_file : str
-		Config file to load. Otherwise use PYORG_CONFIG environment variable.
+	app_dir : str
+		Path to application directory. See :func:`.locate_app_dir`.
 	config : dict
 		Dictionary with additional configuration.
 
@@ -27,22 +47,36 @@ def create_app(config_file=None, config=None):
 	"""
 	app = Flask(__package__)
 
+	# Find application directory
+	app_dir = locate_app_dir(app_dir)
+	if not os.path.isdir(app_dir):
+		raise NotADirectoryError(app_dir)
+
+	app.config['PYORG_DIR'] = app_dir
+
 	# Default configuration
 	app.config.from_object(__package__ + '.config_default')
 
-	# User config file - from argument, environment variable, or default
-	silent = False
-	if config_file is None:
-		config_file = os.environ.get('PYORG_CONFIG')
-	if config_file is None:
-		config_file = DEFAULT_CONFIG_PATH
-		silent = True
-	app.config.from_pyfile(os.path.expanduser(config_file), silent=silent)
+	# User config file in application directory
+	app.config.from_pyfile(os.path.join(app_dir, 'config.py'))
 
 	# Update from supplied mapping
 	if config is not None:
 		app.config.from_mapping(config)
 
+	setup_app(app)
+
+	return app
+
+
+def setup_app(app):
+	"""Set up an existing application object.
+
+	Parameters
+	----------
+	app : flask.Flask
+		Existing application with configuration applied.
+	"""
 	# Register blueprints
 	from .blueprints.core import bp as core_bp
 	app.register_blueprint(core_bp, url_prefix='/')
@@ -70,5 +104,3 @@ def create_app(config_file=None, config=None):
 	def shell_context():
 		from .base import emacs, org
 		return dict(emacs=emacs, org=org)
-
-	return app

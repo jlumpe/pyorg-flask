@@ -1,27 +1,27 @@
 import os
-from shutil import copyfileobj
+from shutil import copyfileobj, rmtree, copytree
 
 import click
 from flask import current_app
 from flask.cli import FlaskGroup, with_appcontext, shell_command as flask_shell
 from pkg_resources import resource_stream
 
-from .factory import create_app, DEFAULT_CONFIG_PATH
+from .factory import create_app, locate_app_dir
 
 
 @click.group(cls=FlaskGroup, create_app=create_app)
 @click.option('-e', '--env', help='Set the Flask environment. Valid values are "production" (default) and "development".')
 @click.option('--debug', is_flag=True, help='Run application in debug mode')
-@click.option('-c', '--config', help='Location of config file')
+@click.option('-d', '--app-dir', help='Path to application directory')
 @click.pass_context
-def cli(ctx, env, debug, config):
+def cli(ctx, env, debug, app_dir):
 	"""Management script for the pyorg-flask application."""
 	if env:
 		os.environ['FLASK_ENV'] = env
 	if debug:
 		os.environ['FLASK_DEBUG'] = '1'
-	if config:
-		os.environ['PYORG_CONFIG'] = config
+	if app_dir:
+		os.environ['PYORG_DIR'] = app_dir
 
 
 def ipython_shell():
@@ -82,29 +82,37 @@ def config_group():
 	"""Manage app configuration."""
 
 
-def locate_config():
-	path = os.environ.get('PYORG_CONFIG', DEFAULT_CONFIG_PATH)
-	return os.path.abspath(os.path.expanduser(path))
-
-
 @config_group.command('locate', with_appcontext=False)
-def locate_config_command():
-	"""Get the path the application looks for the config file at."""
-	click.echo(locate_config())
+def locate_app_dir_command():
+	"""Get the path the application directory is expected to be found at."""
+	click.echo(locate_app_dir())
 
 
 @config_group.command('init', with_appcontext=False)
-@click.argument('file', required=False)
-@click.option('-f', '--force', is_flag=True, help='Overwrite existing configuration files.')
-def init_config_command(file, force):
-	"""Create a default configuration file at the appropriate location."""
-	if file is None:
-		file = locate_config()
+@click.argument('path', required=False)
+@click.option('-f', '--force', is_flag=True, help='Overwrite existing directory.')
+@click.option('-d', '--dry-run', is_flag=True,
+              help="Don't actually do anything, only print what would be done.")
+def init_app_dir_command(path, force, dry_run):
+	"""Create a fresh application directory with default configuration."""
+	if path is None:
+		path = locate_app_dir()
 
-	if os.path.exists(file) and not force:
-		raise click.ClickException('File %s already exists. Use --force option to overwrite.' % file)
+	# Directory exists
+	if os.path.exists(path):
+		if force:
+			if not dry_run:
+				rmtree(path)
+		else:
+			raise click.ClickException(
+				'Directory %s already exists. Use --force option to overwrite.'
+				% path)
 
-	with resource_stream(__package__, 'config_default.py') as src, open(file, 'wb') as dst:
-		copyfileobj(src, dst)
+	# Create directory and copy config file
+	click.echo('Creating application directory at %s' % os.path.abspath(path))
 
-	click.echo('Configuration file written to %s' % os.path.abspath(file))
+	if not dry_run:
+		os.makedirs(path)
+		with resource_stream(__package__, 'config_default.py') as src:
+			with open(os.path.join(path, 'config.py'), 'wb') as dst:
+				copyfileobj(src, dst)
