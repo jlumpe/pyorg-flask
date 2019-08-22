@@ -1,6 +1,8 @@
 from flask import current_app, g
 from werkzeug.local import LocalProxy
 
+import os
+
 
 def get_emacs():
 	"""Get ``Emacs`` instance to use with application context.
@@ -29,11 +31,15 @@ def get_org():
 	"""
 	if 'org' not in g:
 		from pyorg import Org
+		from pyorg.interface import OrgFilesystemCache
 
 		g.org = Org(
 			emacs=get_emacs(),
-			orgdir=current_app.config.get('PYORG_ORG_DIRECTORY')
+			orgdir=current_app.config.get('PYORG_ORG_DIRECTORY'),
 		)
+
+		cache_dir = os.path.join(current_app.config['PYORG_DIR'], 'cache')
+		g.org.loader = OrgFilesystemCache(g.org.orgdir, cache_dir, g.org.emacs)
 
 	return g.org
 
