@@ -1,6 +1,7 @@
 """Application factory."""
 
 import os
+from pathlib import Path
 
 from flask import Flask, render_template, current_app
 
@@ -104,3 +105,26 @@ def setup_app(app):
 	def shell_context():
 		from .base import emacs, org
 		return dict(emacs=emacs, org=org)
+
+
+def init_app_dir(path):
+	"""Initialize a new application directory.
+
+	Parameters
+	----------
+	path : str or pathlib.Path
+		Path to create app directory at. Must not already exist.
+	"""
+	from pkg_resources import resource_stream
+	from shutil import copyfileobj
+
+	path = Path(path)
+
+	# Create directory structure
+	path.mkdir(parents=True)
+	path.joinpath('filecache').mkdir()
+
+	# Default config file
+	with resource_stream(__package__, 'config_default.py') as src:
+		with open(os.path.join(path, 'config.py'), 'wb') as dst:
+			copyfileobj(src, dst)

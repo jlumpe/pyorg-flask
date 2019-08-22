@@ -1,12 +1,11 @@
 import os
-from shutil import copyfileobj, rmtree, copytree
+from shutil import rmtree
 
 import click
 from flask import current_app
 from flask.cli import FlaskGroup, with_appcontext, shell_command as flask_shell
-from pkg_resources import resource_stream
 
-from .factory import create_app, locate_app_dir
+from .factory import create_app, locate_app_dir, init_app_dir
 
 
 @click.group(cls=FlaskGroup, create_app=create_app)
@@ -125,7 +124,4 @@ def init_app_dir_command(path, force, dry_run):
 	click.echo('Creating application directory at %s' % os.path.abspath(path))
 
 	if not dry_run:
-		os.makedirs(path)
-		with resource_stream(__package__, 'config_default.py') as src:
-			with open(os.path.join(path, 'config.py'), 'wb') as dst:
-				copyfileobj(src, dst)
+		init_app_dir(path)
