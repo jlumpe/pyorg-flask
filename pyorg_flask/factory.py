@@ -85,6 +85,8 @@ def setup_app(app):
 	app.register_blueprint(files_bp, url_prefix='/files')
 	from .blueprints.agenda import bp as agenda_bp
 	app.register_blueprint(agenda_bp, url_prefix='/agenda')
+	from .blueprints.config import bp as config_bp
+	app.register_blueprint(config_bp, url_prefix='/config')
 	from .blueprints.api import api
 	app.register_blueprint(api, url_prefix='/api')
 
