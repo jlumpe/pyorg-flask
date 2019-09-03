@@ -1,5 +1,6 @@
 import os
 from shutil import rmtree
+import logging
 
 import click
 from flask import current_app
@@ -8,12 +9,19 @@ from flask.cli import FlaskGroup, with_appcontext, shell_command as flask_shell
 from .factory import create_app, locate_app_dir, init_app_dir
 
 
+LOG_LEVELS = ['debug', 'info', 'warning', 'error', 'critical']
+
+
 @click.group(cls=FlaskGroup, create_app=create_app)
 @click.option('-e', '--env', help='Set the Flask environment. Valid values are "production" (default) and "development".')
 @click.option('--debug', is_flag=True, help='Run application in debug mode')
 @click.option('-d', '--app-dir', help='Path to application directory')
+@click.option('--log', '-l', 'loglevel', type=click.Choice(LOG_LEVELS),
+              help='Set logging level')
+@click.option('-v', 'verbosity', count=True,
+              help='Increase verbosity level. Use once for info, twice for debug.')
 @click.pass_context
-def cli(ctx, env, debug, app_dir):
+def cli(ctx, env, debug, app_dir, loglevel, verbosity):
 	"""Management script for the pyorg-flask application."""
 	if env:
 		os.environ['FLASK_ENV'] = env
@@ -21,6 +29,19 @@ def cli(ctx, env, debug, app_dir):
 		os.environ['FLASK_DEBUG'] = '1'
 	if app_dir:
 		os.environ['PYORG_DIR'] = app_dir
+
+	# Configure logging
+	logging.basicConfig(format='%(levelname)s[%(name)s]: %(message)s')
+
+	if loglevel is None:
+		if verbosity == 1:
+			loglevel = 'info'
+		elif verbosity > 1:
+			loglevel = 'debug'
+
+	if loglevel is not None:
+		level = getattr(logging, loglevel.upper())
+		logging.getLogger('pyorg_flask').setLevel(level)
 
 
 def ipython_shell():
