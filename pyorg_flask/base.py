@@ -31,7 +31,7 @@ def get_org():
 	"""
 	if 'org' not in g:
 		from pyorg import Org
-		from pyorg.interface import OrgFilesystemCache
+		from pyorg.files import OrgFilesystemCache
 
 		g.org = Org(
 			emacs=get_emacs(),
