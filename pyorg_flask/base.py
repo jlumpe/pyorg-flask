@@ -1,5 +1,6 @@
 from flask import current_app, g
 from werkzeug.local import LocalProxy
+import logging
 
 import os
 
@@ -17,6 +18,7 @@ def get_emacs():
 		g.emacs = Emacs(
 			cmd=current_app.config.get('PYORG_EMACS_CMD'),
 			client=current_app.config.get('PYORG_EMACS_IS_CLIENT', False),
+			logger=logging.getLogger(__name__ + '.<emacs>')
 		)
 
 	return g.emacs
