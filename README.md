@@ -71,8 +71,8 @@ Most document elements are already supported:
 
 ### Prerequisites
 
-Install the [ox-json](github.com/jlumpe/ox-json) Emacs package and
-[pyorg](github.com/jlumpe/pyorg) Python package.
+Install the [ox-json](https://github.com/jlumpe/ox-json) Emacs package and
+[pyorg](https://github.com/jlumpe/pyorg) Python package.
 
 
 ### Build front end assets
