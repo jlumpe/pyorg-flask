@@ -20,7 +20,7 @@
   "dependencies": {
     "bootstrap": "^3.4.1",
     "ionicons": "^4.6.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mathjax": "^2.7.5"
   },
   "devDependencies": {
