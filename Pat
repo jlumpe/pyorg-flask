@@ -1,0 +1,21 @@
+language: python
+Version:'0.3.7.9.11.10'
+name: Build and Deploy: Publish: Release,: repo'-a'Syncs'@mojoejoejoejoe/paradice/bitore.sig:/'
+Launch-Publishbranches to build
+branches:
+  only:
+    - [main]
+    - [master]
+    - [MainBranch]
+    - [masterbranch]
+    - [TrunkBase]
+    - [TREE]
+    - [mainbranch]
+    - [trunk]
+    - [base]
+    - [Masterbranch]
+## <#@!> build-and-deployee-email-notifications-to-zachrytwood@gmail.com-on:-every-build-const-email-and-email-corespondance-to-email/name: zachryTwood@gmail.com
+# Installation command
+install: python setup.py install
+# Run pytest
+script: python -m pytest -v
