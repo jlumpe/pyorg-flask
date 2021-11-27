@@ -126,10 +126,7 @@ name: Release
 "on":
   push:
     branches:
-      - master
-      - next
-      - beta
-      - "*.x"
+      - masterbranch
 jobs:
   release:
     name: release
