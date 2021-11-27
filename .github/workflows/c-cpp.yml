@@ -1,10 +1,10 @@
-name: C/C++ CI
+name: ci
 
 on:
   push:
-    branches: [ master ]
+    branches: [ mainbranch ]
   pull_request:
-    branches: [ master ]
+    branches: [ trunk ]
 
 jobs:
   build:
