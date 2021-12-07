@@ -1,4 +1,191 @@
-# pyorg-flask
+<li>SAVINGS		
+		
+CHASE LIQUID		
+		
+Today's Date		
+		
+R/T 500001020		
+		
+Customer Name (Please Print)		
+		
+CASH		
+		
+CHECK		
+		
+Sign Here (If cash is received from this deposit)____________________________________________________________________________		
+		
+TOTAL FROM OTHER SIDE		
+		
+X		
+		
+N13060-CH (Rev. 07/12) 90010657 01/19		
+		
+SUBTOTAL		
+		
+Pay 		
+“Chase,” “JPMorgan,” “JPMorgan Chase,” the JPMorgan Chase logo and the Octagon Symbol are trademarks of JPMorgan Chase Bank, N.A.  JPMorgan Chase Bank, N.A. is a wholly-owned subsidiary of JPMorgan Chase & Co.		
+		
+SC 13G/A 1 SEC13G_Filing.htm SEC SCHEDULE 13G		
+		
+UNITED STATES		
+SECURITIES AND EXCHANGE COMMISSION		
+Washington, D.C. 20549		
+		
+SCHEDULE 13G		
+		
+Under the Securities Exchange Act of 1934		
+		
+(Amendment No. 3 )*		
+            		
+COMPANY: BITORE_34173 [BTC-USD] BTCUSD CCC Bitcoin bitoreunlimited Paradice Construction Bitcoin BITCORE GBTC ETC... AS CONTINURSS ULTIMATELY THE UNITED STATES OF AMERICA.	
+JPMorgan BANK NA	
+OWNER:	Wood.,  Zachry T.		
+(Name of Issuer)		
+		
+Common Stock		
+(Class)		
+		
+BTC-USD		
+(Title of Class of Securities)		
+		
+		
+(CUSIP Number)		
+6-Dec-21		
+(Date of Event Which Requires Filing of this Statement)		
+Check the appropriate box to designate the rule pursuant to which this Schedule is filed:		
+		
+Rule 13d-1(c)	X	
+Rule 13d-1(d)	X	
+		
+		
+		
+Account Name		Rule 13d-1(b)
+JPMORGAN TRUST I		
+Amount		
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Note
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+_______________________________________________________________________		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	# BTC-USD	
+	Founder.	
+	Zachry Tyler Wood	
+	_________________________	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	|	
+	--------- TOTAL $	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<li># pyorg-flask
 
 Simple web app based on the [Flask](http://flask.pocoo.org) and
 [pyorg](http://github.com/jlumpe/pyorg) packages that lets you view your Org
