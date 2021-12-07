@@ -85,6 +85,13 @@ Amount
 		
 		
 		Note
+JPMORGAN
+    WOOD  ZACHRY 
+TULER
+Residence addresses
+5020 elm Hollow Dr
+DALLAS TX 75229
+PURCHASE DESIGNATED CERTIFIED AND SEALED TO OCCUR 2021-12-06
 		
 		
 		
