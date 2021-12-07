@@ -1,4 +1,9 @@
-<li>SAVINGS		
+DIRECT:
+DEPOSIT:
+AMOUNT: $828.00 TO THE NAME OF ZACHRY TYLER WOOD
+MEMO: PUCHASE FOR ZACHRY WOOD
+
+SAVINGS		
 		
 CHASE LIQUID		
 		
@@ -6,32 +11,33 @@ Today's Date
 		
 R/T 500001020		
 		
-Customer Name (Please Print)		
+Customer Name (SECURITIES AND EXCHANNGE Commission)
+Customer Name(The Department of the Treasury)
+Customer name(		
 		
 CASH		
 		
 CHECK		
 		
-Sign Here (If cash is received from this deposit)____________________________________________________________________________		
+Sign Here (If cash is received from this deposit)____<sign_FORM>________________________________________________________________________		
 		
 TOTAL FROM OTHER SIDE		
 		
-X		
+X	$19500000.00	
 		
 N13060-CH (Rev. 07/12) 90010658 01/19		
 		
-SUBTOTAL		
+SUBTOTAL	/s/	$19500000.00
 		
-Pay 		
-“Chase,” “JPMorgan,” “JPMorgan Chase,” the JPMorgan Chase logo and the Octagon Symbol are trademarks of JPMorgan Chase Bank, N.A.  JPMorgan Chase Bank, N.A. is a wholly-owned subsidiary of JPMorgan Chase & Co.		
+"Pay":' ''"Zachry Tyler Wood'"''©®™“2005Chase,” “JPMorgan,” “JPMorgan Chase,” the JPMorgan Chase logo and the Octagon Symbol are trademarks of JPMorgan Chase Bank, N.A.  JPMorgan Chase Bank, N.A. is a wholly-owned subsidiary of JPMorgan Chase & Co.©®™2005	
 		
-SC 13G/A 1 SEC13G_Filing.htm SEC SCHEDULE 13G		
+SC DEPOSIT 1 SECDEPOSIT_Filing.html SEC SCHEDULE DEPOSIT		
 		
 UNITED STATES		
 SECURITIES AND EXCHANGE COMMISSION		
 Washington, D.C. 20549		
 		
-SCHEDULE 13G		
+SCHEDULE 3-
 		
 Under the Securities Exchange Act of 1934		
 		
@@ -149,10 +155,15 @@ _______________________________________________________________________
 		
 		
 		
-	# BTC-USD	
-	Founder.	
-	Zachry Tyler Wood	
-	_________________________	
+##:#:/
+[bitcoin]
+[BITORE_34173]
+[BTC-USD] 
+[BTCUSD CCC]
+Founder.	
+Zachry Tyler Wood	
+JPMORGAN CHASE & Co.BANK NA_____Morgan Stanley Smith & Barney I investment management Agencies signed on 07/17/2005 Owner ZaKWooD __Zachry_Tyler_Wood_DOB_10/
+-15-1994_SSID_***-**-1715_	
 		
 		
 		
@@ -175,7 +186,7 @@ _______________________________________________________________________
 	|	
 	|	
 	|	
-	|	
+	Check out in the amount of:_$1.00USD_paod to the order of 	
 	--------- TOTAL $	
 		
 		
@@ -190,9 +201,10 @@ _______________________________________________________________________
 		
 		
 		
+For Institutional Investor Use Only:' O.S.'_Recieved_11/15/2021
 		
-		
-<li># pyorg-flask
+<li>
+# pyorg-flask
 
 Simple web app based on the [Flask](http://flask.pocoo.org) and
 [pyorg](http://github.com/jlumpe/pyorg) packages that lets you view your Org
@@ -207,7 +219,7 @@ Browse through your org directory:
 
 View an org file:
 
-![Markup and blocks](screenshots/markup-and-blocks.png)
+'!'[Markup' and' blocks']'('screenshots'/markup'-and'-blocks.png)
 
 Most document elements are already supported:
 
