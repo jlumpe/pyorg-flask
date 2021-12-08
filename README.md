@@ -1,38 +1,50 @@
-DIRECT:
-DEPOSIT:
-AMOUNT: $828165621475.00.00 TO THE NAME OF ZACHRY TYLER WOOD
+SC DEPOSIT 1 SECDEPOSIT_Filing.html SEC SCHEDULE DEPOSIT		
+UNITED STATES		
+SECURITIES AND EXCHANGE COMMISSION		
+Washington, D.C. 20549		
+SCHEDULE 3-34173
+Under the Securities Exchange Act of 1934		
+(Amendment No. 3 )*		
+COMPANY: BITORE_34173 [BTC-USD] BTCUSD CCC Bitcoin bitoreunlimited Paradice Construction Bitcoin BITCORE GBTC ETC... AS CONTINURSS ULTIMATELY THE UNITED STATES OF AMERICA.	
+JPMorgan BANK NA	
+OWNER:	Wood.,  Zachry T.		
+(Name of Issuer)		
+DIRECT: DEPOSIT
+DEPOSIT: AMOUNT
+AMOUNT: $828165621475.00.00 
+NAME: JPMOGAN TRUST I
+ACCOUNT HOLDER: Parent
+Parent: United States Department of the Treasury
+BENEFICIARY; ZACHRY TYLER WOOD 
+in personal saving account 0001718745-20-0386 
+Series: S000002965
 MEMO: PUCHASE FOR ZACHRY WOOD
-
 SAVINGS		
-		
 CHASE LIQUID		
-		
 Today's Date		
-		
 R/T 500001020		
-		
 Customer Name (SECURITIES AND EXCHANNGE Commission)
 Customer Name(The Department of the Treasury)
 Customer name(		
-		
 CASH		
-		
-CHECK		
-		
+Registration No. 333-34173-3172
+CHECK 3
+ID 3172		
 Sign Here (If cash is received from this deposit)____<sign_FORM>________________________________________________________________________		
-		
 TOTAL FROM OTHER SIDE		
-		
-X	$19500000.00	
-		
-N13060-CH (Rev. 07/12) 90010658 01/19		
-		
-SUBTOTAL	/s/	$19500000.00
-		
-"Pay":' ''"Zachry Tyler Wood'"''©®™“2005Chase,” “JPMorgan,” “JPMorgan Chase,” the JPMorgan Chase logo and the Octagon Symbol are trademarks of JPMorgan Chase Bank, N.A.  JPMorgan Chase Bank, N.A. is a wholly-owned subsidiary of JPMorgan Chase & Co.©®™2005	
-		
+X_$19500000.00_
+N13060-CH (Rev. 07/12) 90010658 01/19 
+R/T 500001020 90010658
+</focus>
+1122333:|-||'500001020||'-:|90010658:|
+</R/T>
+Purchase:
+Register:
+Checkout:
+1. 
+-SUBTOTAL: $ 19500000.00USD
+"Payor": "Zachry Tyler Wood'"''©®™“2005Chase,” “JPMorgan,” “JPMorgan Chase,” the JPMorgan Chase logo and the Octagon Symbol are trademarks of JPMorgan Chase Bank, N.A.  JPMorgan Chase Bank, N.A. is a wholly-owned subsidiary of JPMorgan Chase & Co.©®™2005	
 SC DEPOSIT 1 SECDEPOSIT_Filing.html SEC SCHEDULE DEPOSIT		
-		
 UNITED STATES		
 SECURITIES AND EXCHANGE COMMISSION		
 Washington, D.C. 20549		
