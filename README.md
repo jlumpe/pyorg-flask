@@ -92,12 +92,21 @@ Amount
 		
 		Note
 JPMORGAN
-    WOOD  ZACHRY 
-TULER
-Residence addresses
-5020 elm Hollow Dr
-DALLAS TX 75229
-PURCHASE DESIGNATED CERTIFIED AND SEALED TO OCCUR 2021-12-06
+ WOOD  ZACHRY 
+TYLER
+ACH:
+AMOUNT: $ 19500000.00USD
+Focus: 0001718745&20&0386&000000000
+Paid to the order of: ZILLOW MARKET GROUP
+Memo: - AQUISITION
+address:5020 elm Hollow Dr DALLAS TX 75229
+PURCHASE DESIGNATED ADDRESS LISTED ABOVE 
+FILE NO. 333-34173 ID 3172
+CERTIFICATE: enabled
+SEAL: enabled
+Date: 2021-12-06
+Run: R/T(021000021)
+response: 200 OK
 		
 		
 		
@@ -155,15 +164,21 @@ _______________________________________________________________________
 		
 		
 		
-##:#:/
 [bitcoin]
 [BITORE_34173]
 [BTC-USD] 
 [BTCUSD CCC]
-Founder.	
-Zachry Tyler Wood	
-JPMORGAN CHASE & Co.BANK NA_____Morgan Stanley Smith & Barney I investment management Agencies signed on 07/17/2005 Owner ZaKWooD __Zachry_Tyler_Wood_DOB_10/
--15-1994_SSID_***-**-1715_	
+Founder.		
+JPMORGAN CHASE & Co.,
+CHASE
+JPMORGAN BANK NA
+Morgan Stanley Smith & Barney 
+Investment Management Holdings Agencies 
+Owner
+signed on 07/17/2005 17:00:00 CENTAL STANDARD TIME
+Zachry_Tyler_Wood
+DOB: 10-15-1994
+SSID: ***-**-1725
 		
 		
 		
