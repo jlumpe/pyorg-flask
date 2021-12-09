@@ -1,18 +1,23 @@
 language: python
 python:
   - '3.6'
-
 # Whitelist of branches to build
 branches:
   only:
     - master
-
 # Avoid email notifications on every build
 notifications:
-  email: false
-
+  email: zachryTwood@gmail.com
 # Installation command
-install: python setup.py install
-
+install: python sets-up -pip input*logs::ALL''"''
 # Run pytest
-script: python -m pytest -v
+script: python ~pillow 
+reads:  pytest ~v
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub OWNER Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+   </repository>
+</distributionManagement>
+<li>Zach wood DOB 10-15-1994<li>
