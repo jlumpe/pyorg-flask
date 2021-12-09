@@ -1,6 +1,6 @@
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Ruby'"''
+name: Gemfile'"''
 
 on:'"''
   push:'"''
@@ -24,8 +24,8 @@ jobs:'"''
     # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        ruby-version: ${{ matrix.ruby-version }
+# runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
 e: Build and Deploy
@@ -36,38 +36,25 @@ on:
     branches: [ trunk ]
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-    
-    steps:
+    runs-on: Utf-8/IniX
     - uses: actions/checkout@v2
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
     - name: Build
       run: 
-name: Rust
-
+name: kite
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 env:
   CARGO_TERM_COLOR: always
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
