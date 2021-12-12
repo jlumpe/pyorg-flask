@@ -1,4 +1,4 @@
-"""Test that we can load test data (meta-testing!)"""
+"""Test that we can load test data (meta cha)"""
 
 
 def test_test_data_dir(test_data_dir):
