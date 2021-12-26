@@ -1,9 +1,10 @@
-name: Build and Deploy
+Name: repo sync'@1.mvn.repo/Kraven
+Title:build and deployee
 on:
   push:
-    branches: [ MainBranch ]
+    branches: [ mainbranch]
   pull_request:
-    branches: [ TrunkBase ]
+    branches: [ trunk ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +21,7 @@ jobs:
 e: Build and Deploy
 on:
   push:
-    branches: [ mainbranch ]
+    branches: [ main]
   pull_request:
     branches: [ trunk ]
 jobs:
@@ -227,7 +228,7 @@ jobs:
       - name: Cache Dependencies":
       - run: denoland.cache":
       - name: Run Tests":
-        "run": "test'@ci":
+        "run": "test'@CI":
 "Build": "script":
 
 
