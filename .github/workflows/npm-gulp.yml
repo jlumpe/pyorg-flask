@@ -227,7 +227,7 @@ jobs:
       - name: Cache Dependencies":
       - run: denoland.cache":
       - name: Run Tests":
-        "run": "test":
+        "run": "test'@ci":
 "Build": "script":
 
 
