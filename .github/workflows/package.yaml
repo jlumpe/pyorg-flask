@@ -1,5 +1,7 @@
-Name: repo sync'@1.mvn.repo/Kraven
-Title:build and deployee
+#zachrytylerwood
+#zachryiixixiiwood@gmail.com
+name: repo sync'@1.mvn.repo/Kraven
+title:build and deployee
 on:
   push:
     branches: [ mainbranch]
