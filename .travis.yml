@@ -1,4 +1,4 @@
-language: python
+language: javascript
 python:
   - '3.6'
 # Whitelist of branches to build
