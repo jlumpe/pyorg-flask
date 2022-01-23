@@ -1,5 +1,19 @@
 # pyorg-flask
-
+language: javascript
+python:
+  - '3.6'
+# Whitelist of branches to build
+branches:
+  only:
+    - master
+# Avoid email notifications on every build
+notifications:
+  email: zachryTwood@gmail.com
+# Installation command
+install: python sets-up -pip input*logs::ALL''"''
+# Run pytest
+script: python ~pillow 
+reads:  pytest ~v
 Simple web app based on the [Flask](http://flask.pocoo.org) and
 [pyorg](http://github.com/jlumpe/pyorg) packages that lets you view your Org
 mode files in fancy HTML.
